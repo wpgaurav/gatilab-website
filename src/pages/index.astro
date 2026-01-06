@@ -35,17 +35,50 @@ const process = [
 ];
 
 const stats = [
-  { number: '700+', label: 'Clients Worldwide' },
+  { number: '90+', label: 'Enterprise Clients' },
   { number: '330%', label: 'Avg. Revenue Growth' },
   { number: '10+', label: 'Years Experience' },
-  { number: '47%', label: 'Traffic Increase' }
+  { number: '20+', label: 'Countries Served' }
 ];
 
+// Featured clients for marquee
+const featuredClients = [
+  'IBM', 'Adobe', 'HubSpot', 'Canva', 'Monday.com', 'Acer', 'Asus', 'Airtel',
+  'FreshBooks', 'IATA', 'UC Riverside', 'Government of India'
+];
+
+// All clients by category
+const clientsByCategory = {
+  'Tech & Software': [
+    'IBM', 'Adobe', 'HubSpot', 'Canva', 'Monday.com', 'Acer', 'Asus',
+    'CapCut', 'Venngage', 'Removal.AI', 'Kittl', 'Wepik'
+  ],
+  'Telecommunications': ['Airtel'],
+  'Finance & Business': [
+    'FreshBooks', 'Lendio', 'iCash Canada', 'TaxBuddy', 'CEX.IO Plus'
+  ],
+  'Education': [
+    'UC Riverside', 'LPU', 'Collegedunia', 'KnowledgeHut', 'Edureka',
+    'Talentedge', 'LessonPal', 'UX Design Bootcamp'
+  ],
+  'Government & Legal': [
+    'Ministry of Agriculture, Govt. of India', 'Vidhi Centre for Legal Policy',
+    'IATA', 'LawClerk'
+  ],
+  'Media & Publishing': [
+    'Express.co.uk', 'The Dallas Morning News', 'Depositphotos', 'CreativeFabrica'
+  ],
+  'Digital Marketing': [
+    'Loganix', 'LYFE Marketing', 'Rock The Rankings', 'Digital Spotlight',
+    'InboundJunction', 'Globex Outreach'
+  ]
+};
+
 const projects = [
-  { title: 'IBM Partner Portal', category: 'Web Development', image: '/assets/images/project-1.jpg' },
-  { title: 'Adobe Campaign', category: 'Content Strategy', image: '/assets/images/project-2.jpg' },
-  { title: 'HubSpot Integration', category: 'Marketing', image: '/assets/images/project-3.jpg' },
-  { title: 'Govt. of India', category: 'Brand Identity', image: '/assets/images/project-4.jpg' }
+  { title: 'IBM Partner Portal', category: 'Web Development' },
+  { title: 'Adobe Campaign', category: 'Content Strategy' },
+  { title: 'HubSpot Integration', category: 'Marketing Automation' },
+  { title: 'Govt. of India', category: 'Digital Strategy' }
 ];
 
 const testimonials = [
@@ -96,6 +129,17 @@ const testimonials = [
       <a href="#process">Process</a>
       <a href="/contact">Contact</a>
     </nav>
+  </section>
+
+  <!-- Clients Marquee -->
+  <section class="clients-marquee">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        {[...featuredClients, ...featuredClients].map(client => (
+          <span class="client-name">{client}</span>
+        ))}
+      </div>
+    </div>
   </section>
 
   <!-- Services Section -->
@@ -195,6 +239,30 @@ const testimonials = [
               <span>{project.category}</span>
             </div>
           </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="clients-section" id="clients">
+    <div class="container">
+      <div class="clients-header">
+        <h2 class="clients-title">
+          Trusted<br /><em>worldwide</em>
+        </h2>
+        <p class="clients-desc">From tech giants to government bodies, we've partnered with brands that demand excellence.</p>
+      </div>
+      <div class="clients-categories">
+        {Object.entries(clientsByCategory).map(([category, clients]) => (
+          <div class="client-category">
+            <h3 class="category-name">{category}</h3>
+            <div class="category-clients">
+              {clients.map(client => (
+                <span class="client-tag">{client}</span>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
@@ -738,6 +806,112 @@ const testimonials = [
     margin-bottom: 40px;
   }
 
+  /* Clients Marquee */
+  .clients-marquee {
+    background: #0f0f0f;
+    padding: 20px 0;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 60px;
+    animation: marquee 40s linear infinite;
+  }
+
+  .client-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Clients Section */
+  .clients-section {
+    background: #1a1a1a;
+    padding: 120px 0;
+  }
+
+  .clients-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .clients-title {
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .clients-title em {
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .clients-desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .clients-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  .client-category {
+    padding: 32px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .category-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ed8936;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .category-clients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .client-tag {
+    display: inline-block;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    transition: all 0.2s ease;
+  }
+
+  .client-tag:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+
   /* Responsive */
   @media (max-width: 1024px) {
     .hero-content {
@@ -791,9 +965,21 @@ const testimonials = [
     .testimonials-grid {
       grid-template-columns: 1fr;
     }
+
+    .clients-categories {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
   }
 
   @media (max-width: 640px) {
+    .clients-categories {
+      grid-template-columns: 1fr;
+    }
+
+    .client-category {
+      padding: 24px;
+    }
     .hero-visual {
       width: 200px;
       height: 200px;
