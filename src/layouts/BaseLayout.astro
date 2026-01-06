@@ -14,7 +14,7 @@ const {
   title,
   description = 'Gatilab is a conversion-focused digital marketing agency with 700+ clients including IBM, Adobe, and Government of India. We build brands that convert.',
   transparentHeader = false,
-  ogImage = '/images/og-default.jpg'
+  ogImage = '/assets/images/gatilab-logo-1.png'
 } = Astro.props;
 
 const siteTitle = title === 'Home' ? 'Gatilab - Perfection Obsessed Marketing & Design Agency' : `${title} | Gatilab`;
@@ -42,7 +42,9 @@ const siteTitle = title === 'Home' ? 'Gatilab - Perfection Obsessed Marketing & 
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/gatilab-icon.svg" />
+    <link rel="icon" type="image/png" href="/assets/images/gatilab-icon.png" />
+    <link rel="apple-touch-icon" href="/assets/images/gatilab-icon.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
