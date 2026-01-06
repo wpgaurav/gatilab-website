@@ -1,0 +1,18 @@
+/// <reference types="astro/client" />
+
+interface ImportMetaEnv {
+  readonly PUBLIC_SITE_URL: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
+
+declare global {
+  interface Window {
+    gsap: typeof gsap;
+    ScrollTrigger: typeof ScrollTrigger;
+  }
+}
+
+export {};
