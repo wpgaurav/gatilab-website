@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2444"/>
+      <stop offset="50%" style="stop-color:#1a365d"/>
+      <stop offset="100%" style="stop-color:#2d4a7c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <text x="600" y="280" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="72" font-weight="700" fill="#ffffff">Gatilab</text>
+  <text x="600" y="360" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="28" fill="#ed8936">Perfection Obsessed Marketing &amp; Design Agency</text>
+  <text x="600" y="440" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="22" fill="rgba(255,255,255,0.7)">700+ Clients | IBM, Adobe, HubSpot | 330% Revenue Growth</text>
+</svg>
