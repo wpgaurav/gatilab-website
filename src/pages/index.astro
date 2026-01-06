@@ -1,46 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const clients = [
-  'IBM', 'Adobe', 'HubSpot', 'Canva', 'Acer', 'Airtel', 'Government of India'
-];
+const clients = ['IBM', 'Adobe', 'HubSpot', 'Canva', 'Airtel', 'Govt. of India'];
 
 const services = [
   {
-    title: 'WordPress Development',
-    description: 'High-performance websites that load fast, convert visitors, and don\'t break when you update plugins.',
-    icon: 'code',
-    stats: '200+ sites delivered'
+    number: '01',
+    title: 'Web Development',
+    description: 'High-performance WordPress sites that load fast and convert visitors into customers.',
+    link: '/services#wordpress-development'
   },
   {
-    title: 'SEO Services',
-    description: 'Rankings that bring customers, not just traffic. Revenue-focused keyword strategy and technical optimization.',
-    icon: 'search',
-    stats: '47% avg traffic increase'
+    number: '02',
+    title: 'SEO & Growth',
+    description: 'Revenue-focused SEO that brings customers, not just traffic. Real rankings, real results.',
+    link: '/services#seo'
   },
   {
+    number: '03',
     title: 'Content Marketing',
-    description: 'Content that ranks, converts, and doesn\'t read like it was written by a committee of robots.',
-    icon: 'edit',
-    stats: '1,750+ articles published'
+    description: 'Strategic content that ranks, engages, and converts. No fluff, just results.',
+    link: '/services#content-marketing'
   },
   {
-    title: 'Web Design',
-    description: 'Design that looks good AND converts. Strategic visual communication, not just pretty pixels.',
-    icon: 'palette',
-    stats: '700+ clients served'
-  },
-  {
-    title: 'Branding & Identity',
-    description: 'Visual identity that makes people remember you and trust you before you\'ve said a word.',
-    icon: 'star',
-    stats: 'Full brand packages'
-  },
-  {
-    title: 'White-Label Services',
-    description: 'We do the work. Your agency gets the credit. Your clients never know we exist.',
-    icon: 'users',
-    stats: '15-20% below retail'
+    number: '04',
+    title: 'Brand & Design',
+    description: 'Visual identities that make you memorable and build trust before you say a word.',
+    link: '/services#branding'
   }
 ];
 
@@ -48,262 +34,161 @@ const testimonials = [
   {
     quote: 'Gaurav Tiwari is possibly the finest talent I have seen. He deserves a great future.',
     author: 'Sushil Modi',
-    role: 'Hon\'ble MP, Former Deputy CM & Finance Minister, Bihar'
+    role: 'Hon. MP, Former Deputy CM, Bihar'
   },
   {
     quote: 'From planning to writing to designing to marketing, Gaurav is the best I\'ve seen in my entire career.',
     author: 'Eugene M. Keen',
-    role: 'Former Product Marketing Manager, Konica Minolta'
-  },
-  {
-    quote: 'His work is so detailed and just what I need. The way he works is very professional. He has a great eye for design.',
-    author: 'Client',
-    role: 'Web Development Project'
+    role: 'Former PM, Konica Minolta'
   }
 ];
 
 const stats = [
-  { number: '700+', label: 'Clients Served' },
-  { number: '330%', label: 'Combined Revenue Growth' },
-  { number: '104%', label: 'YoY Agency Growth' },
-  { number: '10+', label: 'Years in Business' }
+  { number: '700+', label: 'Clients Worldwide' },
+  { number: '330%', label: 'Avg. Revenue Growth' },
+  { number: '10+', label: 'Years Experience' },
+  { number: '20+', label: 'Countries Served' }
 ];
 ---
 
 <BaseLayout title="Home" transparentHeader={true}>
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-gradient"></div>
-      <div class="hero-pattern"></div>
-    </div>
+    <div class="hero-bg"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge gsap-fade-up">
-          <span class="badge-dot"></span>
-          <span>Trusted by 700+ businesses globally</span>
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span>Digital Marketing Agency</span>
         </div>
-        <h1 class="hero-title gsap-fade-up">
-          We Build Brands<br />
-          <span class="text-gradient">That Convert</span>
+        <h1 class="hero-title">
+          We Build Brands
+          <span class="title-accent">That Convert</span>
         </h1>
-        <p class="hero-description gsap-fade-up">
-          Conversion-focused digital strategies, high-performance websites, and custom solutions
-          that turn visitors into customers and customers into advocates.
+        <p class="hero-subtitle">
+          Conversion-focused strategies that turn visitors into customers.
+          700+ clients trust us with their growth.
         </p>
-        <div class="hero-actions gsap-fade-up">
-          <a href="/contact" class="btn btn-accent btn-lg">Start Your Project</a>
-          <a href="/services" class="btn btn-outline-light btn-lg">Explore Services</a>
-        </div>
-        <div class="hero-clients gsap-fade-up">
-          <span class="clients-label">Trusted by:</span>
-          <div class="clients-list">
-            {clients.slice(0, 5).map(client => (
-              <span class="client-name">{client}</span>
-            ))}
-          </div>
+        <div class="hero-cta">
+          <a href="/contact" class="btn-primary-large">
+            Start Your Project
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="/services" class="btn-ghost">View Services</a>
         </div>
       </div>
-      <div class="hero-visual gsap-scale-in">
-        <div class="hero-card">
-          <div class="card-metric">
-            <span class="metric-number" id="counter-clients">0</span>
-            <span class="metric-label">Happy Clients</span>
+      <div class="hero-stats">
+        {stats.map(stat => (
+          <div class="hero-stat">
+            <span class="stat-num">{stat.number}</span>
+            <span class="stat-text">{stat.label}</span>
           </div>
-          <div class="card-divider"></div>
-          <div class="card-metric">
-            <span class="metric-number" id="counter-growth">0%</span>
-            <span class="metric-label">Revenue Growth</span>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-    <div class="hero-scroll">
-      <span>Scroll to explore</span>
-      <div class="scroll-indicator"></div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid stagger-container">
-        {stats.map(stat => (
-          <div class="stat-item stagger-item">
-            <span class="stat-number">{stat.number}</span>
-            <span class="stat-label">{stat.label}</span>
-          </div>
+  <!-- Clients Marquee -->
+  <section class="clients-bar">
+    <div class="marquee">
+      <div class="marquee-content">
+        {[...clients, ...clients, ...clients].map(client => (
+          <span class="client-item">{client}</span>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- About Preview -->
-  <section class="about-preview section">
+  <!-- About Section -->
+  <section class="about-section">
     <div class="container">
       <div class="about-grid">
-        <div class="about-content gsap-slide-left">
-          <span class="section-tag">About Gatilab</span>
-          <h2>Perfection Obsessed Marketing & Design Agency</h2>
-          <p class="lead">
-            We don't chase pageviews or follower counts. We measure success by what matters:
-            leads generated, sales closed, and businesses grown.
-          </p>
-          <p>
-            Founded in 2014 by Gaurav Tiwari and Ravi Shahi, Gatilab has grown from a small
-            Delhi-based agency to a trusted partner for 700+ clients globally—from startups
-            to enterprises like IBM, Adobe, HubSpot, and the Government of India.
-          </p>
-          <div class="about-features">
-            <div class="feature">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-              </div>
-              <div>
-                <strong>Conversion First</strong>
-                <p>Every pixel, every word has one job: drive results.</p>
-              </div>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-              </div>
-              <div>
-                <strong>Quality Over Quantity</strong>
-                <p>Smaller client loads mean deeper attention.</p>
-              </div>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </div>
-              <div>
-                <strong>Client Partnership</strong>
-                <p>Your success metrics are our success metrics.</p>
-              </div>
-            </div>
-          </div>
-          <a href="/about" class="btn btn-primary">Learn More About Us</a>
+        <div class="about-left">
+          <span class="section-label">About Us</span>
+          <h2 class="section-title">
+            Perfection Obsessed
+            <br />Marketing Agency
+          </h2>
         </div>
-        <div class="about-visual gsap-slide-right">
-          <div class="visual-card">
-            <div class="visual-stats">
-              <div class="visual-stat">
-                <span class="visual-number">16+</span>
-                <span class="visual-label">Years Experience</span>
-              </div>
-              <div class="visual-stat">
-                <span class="visual-number">14+</span>
-                <span class="visual-label">Team Members</span>
-              </div>
-              <div class="visual-stat">
-                <span class="visual-number">20+</span>
-                <span class="visual-label">Countries Served</span>
-              </div>
-            </div>
-          </div>
+        <div class="about-right">
+          <p class="about-lead">
+            We don't chase vanity metrics. We measure success by what matters—leads generated,
+            sales closed, and businesses grown.
+          </p>
+          <p class="about-text">
+            Founded in 2014 in Delhi, we've grown from a small agency to a trusted partner
+            for 700+ clients globally. From startups to enterprises like IBM, Adobe, and
+            the Government of India.
+          </p>
+          <a href="/about" class="link-arrow">
+            Learn more about us
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section class="services-section section bg-light">
+  <section class="services-section">
     <div class="container">
-      <div class="section-header gsap-fade-up">
-        <span class="section-tag">What We Do</span>
-        <h2>Services Built for Results</h2>
-        <p>Full-stack capability: Strategy, design, development, content, SEO—all under one roof.
-           No handoffs between agencies. One team owning the entire outcome.</p>
+      <div class="services-header">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Services Built<br />for Results</h2>
       </div>
-      <div class="services-grid stagger-container">
+      <div class="services-list">
         {services.map(service => (
-          <div class="service-card stagger-item">
-            <div class="service-icon">
-              {service.icon === 'code' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="16 18 22 12 16 6"/>
-                  <polyline points="8 6 2 12 8 18"/>
-                </svg>
-              )}
-              {service.icon === 'search' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8"/>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-              )}
-              {service.icon === 'edit' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                </svg>
-              )}
-              {service.icon === 'palette' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="13.5" cy="6.5" r="0.5" fill="currentColor"/>
-                  <circle cx="17.5" cy="10.5" r="0.5" fill="currentColor"/>
-                  <circle cx="8.5" cy="7.5" r="0.5" fill="currentColor"/>
-                  <circle cx="6.5" cy="12.5" r="0.5" fill="currentColor"/>
-                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/>
-                </svg>
-              )}
-              {service.icon === 'star' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-              )}
-              {service.icon === 'users' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              )}
+          <a href={service.link} class="service-item">
+            <span class="service-number">{service.number}</span>
+            <div class="service-content">
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-desc">{service.description}</p>
             </div>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-            <span class="service-stat">{service.stats}</span>
-          </div>
+            <div class="service-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
         ))}
-      </div>
-      <div class="services-cta gsap-fade-up">
-        <a href="/services" class="btn btn-primary btn-lg">View All Services</a>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="testimonials-section section">
+  <!-- Big Statement -->
+  <section class="statement-section">
     <div class="container">
-      <div class="section-header gsap-fade-up">
-        <span class="section-tag">Client Stories</span>
-        <h2>What Our Clients Say</h2>
-        <p>Real feedback from real clients. No fluff, just results.</p>
+      <blockquote class="big-statement">
+        "Every pixel, every word, every strategy has one job:
+        <span class="highlight">drive results.</span>"
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Clients Say</h2>
       </div>
-      <div class="testimonials-grid stagger-container">
+      <div class="testimonials-grid">
         {testimonials.map(testimonial => (
-          <div class="testimonial-card stagger-item">
-            <div class="quote-icon">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" opacity="0.1">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-              </svg>
-            </div>
-            <blockquote>{testimonial.quote}</blockquote>
+          <div class="testimonial-card">
+            <p class="testimonial-quote">"{testimonial.quote}"</p>
             <div class="testimonial-author">
-              <div class="author-avatar">
-                {testimonial.author.split(' ').map(n => n[0]).join('')}
-              </div>
+              <div class="author-avatar">{testimonial.author.split(' ').map(n => n[0]).join('')}</div>
               <div class="author-info">
                 <strong>{testimonial.author}</strong>
                 <span>{testimonial.role}</span>
@@ -315,757 +200,534 @@ const stats = [
     </div>
   </section>
 
-  <!-- Differentiators Section -->
-  <section class="differentiators-section section bg-dark">
-    <div class="container">
-      <div class="diff-grid">
-        <div class="diff-content gsap-fade-up">
-          <span class="section-tag-light">Why Gatilab</span>
-          <h2>What Makes Us Different</h2>
-          <p>We're not like other agencies. Here's how we compare:</p>
-        </div>
-        <div class="diff-table gsap-fade-up">
-          <div class="diff-row diff-header">
-            <span>Factor</span>
-            <span>Typical Agency</span>
-            <span>Gatilab</span>
-          </div>
-          <div class="diff-row">
-            <span>Success Metric</span>
-            <span class="diff-typical">Deliverables completed</span>
-            <span class="diff-gatilab">Business results achieved</span>
-          </div>
-          <div class="diff-row">
-            <span>Who Does Work</span>
-            <span class="diff-typical">Junior staff</span>
-            <span class="diff-gatilab">Senior specialists</span>
-          </div>
-          <div class="diff-row">
-            <span>Tech Capability</span>
-            <span class="diff-typical">Outsourced</span>
-            <span class="diff-gatilab">In-house development</span>
-          </div>
-          <div class="diff-row">
-            <span>Reporting</span>
-            <span class="diff-typical">Vanity metrics</span>
-            <span class="diff-gatilab">Business KPIs</span>
-          </div>
-          <div class="diff-row">
-            <span>Relationship</span>
-            <span class="diff-typical">Vendor</span>
-            <span class="diff-gatilab">Partner</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
-      <div class="cta-content gsap-fade-up">
-        <h2>Ready to Build a Brand That Converts?</h2>
-        <p>Let's talk about your project. No pressure, no obligation—just an honest conversation about what's possible.</p>
-        <div class="cta-actions">
-          <a href="/contact" class="btn btn-accent btn-lg">Start Your Project</a>
-          <a href="mailto:contact@gatilab.com" class="btn btn-outline-light btn-lg">contact@gatilab.com</a>
-        </div>
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to grow?</h2>
+        <p class="cta-text">Let's build something great together.</p>
+        <a href="/contact" class="btn-primary-large light">
+          Start Your Project
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Hero Section */
+  /* Hero */
   .hero {
-    position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    padding: var(--space-32) 0 var(--space-20);
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 120px 0 60px;
     overflow: hidden;
   }
 
   .hero-bg {
     position: absolute;
     inset: 0;
+    background: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #234876 100%);
+    z-index: -2;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     z-index: -1;
   }
 
-  .hero-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, #2d4a7c 100%);
-  }
-
-  .hero-pattern {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
-    background-size: 40px 40px;
-  }
-
   .hero .container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--space-16);
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
   }
 
   .hero-content {
-    color: var(--color-white);
+    max-width: 900px;
   }
 
-  .hero-badge {
-    display: inline-flex;
+  .hero-eyebrow {
+    display: flex;
     align-items: center;
-    gap: var(--space-2);
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    margin-bottom: var(--space-6);
+    gap: 16px;
+    margin-bottom: 24px;
+    color: #ed8936;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
   }
 
-  .badge-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+  .eyebrow-line {
+    width: 40px;
+    height: 2px;
+    background: #ed8936;
   }
 
   .hero-title {
-    font-size: var(--text-6xl);
+    font-size: clamp(48px, 8vw, 96px);
     font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: var(--space-6);
-    color: var(--color-white);
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
+  .title-accent {
+    display: block;
+    background: linear-gradient(135deg, #ed8936 0%, #f6ad55 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .hero-description {
-    font-size: var(--text-xl);
+  .hero-subtitle {
+    font-size: 20px;
     line-height: 1.7;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: var(--space-8);
-    max-width: 540px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: var(--space-4);
-    margin-bottom: var(--space-10);
-  }
-
-  .btn-outline-light {
-    border: 2px solid rgba(255,255,255,0.3);
-    color: var(--color-white);
-    background: transparent;
-  }
-
-  .btn-outline-light:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.5);
-    color: var(--color-white);
-  }
-
-  .hero-clients {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    flex-wrap: wrap;
-  }
-
-  .clients-label {
-    font-size: var(--text-sm);
-    color: rgba(255,255,255,0.6);
-  }
-
-  .clients-list {
-    display: flex;
-    gap: var(--space-4);
-    flex-wrap: wrap;
-  }
-
-  .client-name {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: rgba(255,255,255,0.8);
-    padding: var(--space-1) var(--space-3);
-    background: rgba(255,255,255,0.1);
-    border-radius: var(--radius-md);
-  }
-
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-card {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(20px);
-    border-radius: var(--radius-2xl);
-    padding: var(--space-10);
-    border: 1px solid rgba(255,255,255,0.2);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-    min-width: 280px;
-  }
-
-  .card-metric {
-    text-align: center;
-  }
-
-  .metric-number {
-    display: block;
-    font-size: var(--text-5xl);
-    font-weight: 800;
-    color: var(--color-white);
-    line-height: 1;
-  }
-
-  .metric-label {
-    font-size: var(--text-sm);
     color: rgba(255,255,255,0.7);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    max-width: 500px;
+    margin-bottom: 40px;
   }
 
-  .card-divider {
-    height: 1px;
-    background: rgba(255,255,255,0.2);
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: var(--space-8);
-    left: 50%;
-    transform: translateX(-50%);
+  .hero-cta {
     display: flex;
-    flex-direction: column;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary-large {
+    display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
-    color: rgba(255,255,255,0.6);
-    font-size: var(--text-sm);
+    gap: 12px;
+    padding: 18px 32px;
+    background: #ed8936;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
 
-  .scroll-indicator {
-    width: 24px;
-    height: 40px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: var(--radius-full);
-    position: relative;
+  .btn-primary-large:hover {
+    background: #dd6b20;
+    transform: translateY(-2px);
+    color: #fff;
   }
 
-  .scroll-indicator::after {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 8px;
-    background: var(--color-accent);
-    border-radius: var(--radius-full);
-    animation: scroll 2s infinite;
+  .btn-primary-large.light {
+    background: #fff;
+    color: #1a365d;
   }
 
-  @keyframes scroll {
-    0% { top: 8px; opacity: 1; }
-    100% { top: 24px; opacity: 0; }
+  .btn-primary-large.light:hover {
+    background: #f7fafc;
+    color: #1a365d;
   }
 
-  /* Stats Section */
-  .stats-section {
-    background: var(--color-white);
-    padding: var(--space-16) 0;
-    border-bottom: 1px solid var(--color-gray-200);
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 18px 32px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
 
-  .stats-grid {
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+  }
+
+  .hero-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-8);
+    gap: 32px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
 
-  .stat-item {
-    text-align: center;
-    padding: var(--space-6);
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
-  .stat-number {
-    display: block;
-    font-size: var(--text-4xl);
+  .stat-num {
+    font-size: 36px;
     font-weight: 800;
-    color: var(--color-primary);
-    margin-bottom: var(--space-2);
+    color: #fff;
   }
 
-  .stat-label {
-    font-size: var(--text-sm);
-    color: var(--color-gray-600);
+  .stat-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
-  /* About Preview */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--space-16);
-    align-items: center;
-  }
-
-  .section-tag {
-    display: inline-block;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-4);
-  }
-
-  .section-tag-light {
-    display: inline-block;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-4);
-  }
-
-  .about-content h2 {
-    margin-bottom: var(--space-6);
-  }
-
-  .about-content .lead {
-    font-size: var(--text-xl);
-    color: var(--color-gray-700);
-    margin-bottom: var(--space-4);
-  }
-
-  .about-features {
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
-    margin: var(--space-8) 0;
-  }
-
-  .feature {
-    display: flex;
-    gap: var(--space-4);
-  }
-
-  .feature-icon {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    background: var(--color-primary);
-    color: var(--color-white);
-    border-radius: var(--radius-lg);
-    display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
-  .feature strong {
-    display: block;
-    margin-bottom: var(--space-1);
-    color: var(--color-gray-900);
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
   }
 
-  .feature p {
-    margin: 0;
-    font-size: var(--text-sm);
-    color: var(--color-gray-600);
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
   }
 
-  .visual-card {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: var(--radius-2xl);
-    padding: var(--space-10);
-    color: var(--color-white);
+  /* Clients Marquee */
+  .clients-bar {
+    background: #0a1628;
+    padding: 24px 0;
+    overflow: hidden;
   }
 
-  .visual-stats {
+  .marquee {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 60px;
+    animation: marquee 30s linear infinite;
+  }
+
+  .client-item {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 120px 0;
+    background: #fff;
+  }
+
+  .about-grid {
     display: grid;
-    gap: var(--space-8);
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
   }
 
-  .visual-stat {
-    text-align: center;
-    padding: var(--space-4);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+  .section-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ed8936;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
   }
 
-  .visual-stat:last-child {
-    border-bottom: none;
-  }
-
-  .visual-number {
-    display: block;
-    font-size: var(--text-4xl);
+  .section-title {
+    font-size: clamp(36px, 5vw, 56px);
     font-weight: 800;
-    margin-bottom: var(--space-1);
+    line-height: 1.1;
+    color: #1a202c;
   }
 
-  .visual-label {
-    font-size: var(--text-sm);
-    color: rgba(255,255,255,0.8);
+  .about-lead {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #2d3748;
+    margin-bottom: 24px;
+  }
+
+  .about-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #718096;
+    margin-bottom: 32px;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a365d;
+    text-decoration: none;
+    transition: gap 0.3s ease;
+  }
+
+  .link-arrow:hover {
+    gap: 16px;
+    color: #ed8936;
   }
 
   /* Services Section */
-  .services-grid {
+  .services-section {
+    padding: 120px 0;
+    background: #f7fafc;
+  }
+
+  .services-header {
+    margin-bottom: 60px;
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-item {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-8);
+    grid-template-columns: 80px 1fr auto;
+    gap: 40px;
+    align-items: center;
+    padding: 40px 0;
+    border-bottom: 1px solid #e2e8f0;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
 
-  .service-card {
-    background: var(--color-white);
-    border-radius: var(--radius-xl);
-    padding: var(--space-8);
-    border: 1px solid var(--color-gray-200);
-    transition: all var(--transition-base);
+  .service-item:first-child {
+    border-top: 1px solid #e2e8f0;
   }
 
-  .service-card:hover {
-    border-color: var(--color-primary);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+  .service-item:hover {
+    padding-left: 20px;
+    background: #fff;
   }
 
-  .service-icon {
-    width: 64px;
-    height: 64px;
-    background: var(--color-gray-100);
-    border-radius: var(--radius-lg);
+  .service-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ed8936;
+  }
+
+  .service-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 8px;
+  }
+
+  .service-desc {
+    font-size: 16px;
+    color: #718096;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .service-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-primary);
-    margin-bottom: var(--space-6);
-    transition: all var(--transition-base);
+    color: #1a365d;
+    transition: all 0.3s ease;
   }
 
-  .service-card:hover .service-icon {
-    background: var(--color-primary);
-    color: var(--color-white);
+  .service-item:hover .service-arrow {
+    background: #1a365d;
+    border-color: #1a365d;
+    color: #fff;
   }
 
-  .service-card h3 {
-    font-size: var(--text-xl);
-    margin-bottom: var(--space-3);
+  /* Statement Section */
+  .statement-section {
+    padding: 120px 0;
+    background: #1a365d;
   }
 
-  .service-card p {
-    color: var(--color-gray-600);
-    margin-bottom: var(--space-4);
-    font-size: var(--text-sm);
-    line-height: 1.7;
-  }
-
-  .service-stat {
-    display: inline-block;
-    font-size: var(--text-sm);
+  .big-statement {
+    font-size: clamp(28px, 4vw, 48px);
     font-weight: 600;
-    color: var(--color-accent);
+    line-height: 1.4;
+    color: #fff;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .services-cta {
-    text-align: center;
-    margin-top: var(--space-12);
+  .big-statement .highlight {
+    color: #ed8936;
   }
 
   /* Testimonials */
+  .testimonials-section {
+    padding: 120px 0;
+    background: #fff;
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
   .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-8);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
 
   .testimonial-card {
-    background: var(--color-gray-50);
-    border-radius: var(--radius-xl);
-    padding: var(--space-8);
-    position: relative;
+    background: #f7fafc;
+    border-radius: 16px;
+    padding: 40px;
   }
 
-  .quote-icon {
-    position: absolute;
-    top: var(--space-6);
-    right: var(--space-6);
-    color: var(--color-primary);
-  }
-
-  .testimonial-card blockquote {
-    font-size: var(--text-lg);
+  .testimonial-quote {
+    font-size: 20px;
     line-height: 1.7;
-    color: var(--color-gray-800);
-    margin-bottom: var(--space-6);
+    color: #2d3748;
+    margin-bottom: 32px;
   }
 
   .testimonial-author {
     display: flex;
     align-items: center;
-    gap: var(--space-4);
+    gap: 16px;
   }
 
   .author-avatar {
     width: 48px;
     height: 48px;
-    background: var(--color-primary);
-    color: var(--color-white);
+    background: #1a365d;
+    color: #fff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: var(--text-sm);
+    font-size: 14px;
   }
 
   .author-info strong {
     display: block;
-    color: var(--color-gray-900);
+    font-size: 16px;
+    color: #1a202c;
   }
 
   .author-info span {
-    font-size: var(--text-sm);
-    color: var(--color-gray-500);
-  }
-
-  /* Differentiators */
-  .diff-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: var(--space-16);
-    align-items: start;
-  }
-
-  .diff-content h2 {
-    color: var(--color-white);
-    margin-bottom: var(--space-4);
-  }
-
-  .diff-content p {
-    color: var(--color-gray-400);
-  }
-
-  .diff-table {
-    background: rgba(255,255,255,0.05);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-  }
-
-  .diff-row {
-    display: grid;
-    grid-template-columns: 1.5fr 1.5fr 1.5fr;
-    gap: var(--space-4);
-    padding: var(--space-5) var(--space-6);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .diff-row:last-child {
-    border-bottom: none;
-  }
-
-  .diff-header {
-    background: rgba(255,255,255,0.05);
-    font-weight: 600;
-    color: var(--color-gray-400);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .diff-row span:first-child {
-    font-weight: 500;
-    color: var(--color-white);
-  }
-
-  .diff-typical {
-    color: var(--color-gray-500);
-  }
-
-  .diff-gatilab {
-    color: var(--color-accent);
-    font-weight: 500;
+    font-size: 14px;
+    color: #718096;
   }
 
   /* CTA Section */
   .cta-section {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    padding: var(--space-24) 0;
+    padding: 120px 0;
+    background: linear-gradient(135deg, #1a365d 0%, #0a1628 100%);
+  }
+
+  .cta-content {
     text-align: center;
   }
 
-  .cta-content h2 {
-    color: var(--color-white);
-    margin-bottom: var(--space-4);
-    font-size: var(--text-4xl);
+  .cta-title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
   }
 
-  .cta-content p {
-    color: rgba(255,255,255,0.8);
-    font-size: var(--text-xl);
-    max-width: 600px;
-    margin: 0 auto var(--space-8);
-  }
-
-  .cta-actions {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-4);
-    flex-wrap: wrap;
+  .cta-text {
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 40px;
   }
 
   /* Responsive */
   @media (max-width: 1024px) {
-    .hero .container {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    .hero-title {
-      font-size: var(--text-5xl);
-    }
-
-    .hero-description {
-      margin: 0 auto var(--space-8);
-    }
-
-    .hero-actions {
-      justify-content: center;
-    }
-
-    .hero-clients {
-      justify-content: center;
-    }
-
-    .hero-visual {
-      display: none;
-    }
-
-    .stats-grid {
+    .hero-stats {
       grid-template-columns: repeat(2, 1fr);
     }
 
     .about-grid {
       grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
     }
 
     .testimonials-grid {
       grid-template-columns: 1fr;
     }
-
-    .diff-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
-  @media (max-width: 640px) {
-    .hero-title {
-      font-size: var(--text-4xl);
+  @media (max-width: 768px) {
+    .hero {
+      padding: 100px 0 40px;
     }
 
-    .hero-actions {
+    .hero-cta {
       flex-direction: column;
     }
 
-    .hero-actions .btn {
+    .hero-cta .btn-primary-large,
+    .hero-cta .btn-ghost {
       width: 100%;
+      justify-content: center;
     }
 
-    .stats-grid {
-      grid-template-columns: 1fr 1fr;
+    .hero-stats {
+      gap: 24px;
     }
 
-    .services-grid {
+    .stat-num {
+      font-size: 28px;
+    }
+
+    .service-item {
       grid-template-columns: 1fr;
+      gap: 16px;
     }
 
-    .diff-row {
-      grid-template-columns: 1fr;
-      gap: var(--space-2);
+    .service-number {
+      order: -1;
     }
 
-    .diff-header {
+    .service-arrow {
       display: none;
     }
 
-    .diff-row span::before {
-      content: attr(data-label);
-      display: block;
-      font-size: var(--text-xs);
-      color: var(--color-gray-500);
-      margin-bottom: var(--space-1);
-    }
-
-    .cta-content h2 {
-      font-size: var(--text-3xl);
-    }
-
-    .cta-actions {
-      flex-direction: column;
-    }
-
-    .cta-actions .btn {
-      width: 100%;
+    .scroll-hint {
+      display: none;
     }
   }
 </style>
-
-<script>
-  // Counter animation for hero
-  document.addEventListener('DOMContentLoaded', () => {
-    const animateCounter = (element, target, suffix = '') => {
-      const duration = 2000;
-      const start = 0;
-      const startTime = performance.now();
-
-      const update = (currentTime) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = Math.floor(start + (target - start) * easeOut);
-
-        if (element) {
-          element.textContent = current + suffix;
-        }
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        }
-      };
-
-      requestAnimationFrame(update);
-    };
-
-    // Animate counters when hero is visible
-    setTimeout(() => {
-      animateCounter(document.getElementById('counter-clients'), 700, '+');
-      animateCounter(document.getElementById('counter-growth'), 330, '%');
-    }, 500);
-  });
-</script>
