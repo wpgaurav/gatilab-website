@@ -19,11 +19,8 @@ const navLinks = [
   <div class="container">
     <nav class="nav">
       <a href="/" class="logo" aria-label="Gatilab Home">
-        <svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="30" font-family="Plus Jakarta Sans, sans-serif" font-size="28" font-weight="700" fill="currentColor">
-            Gatilab
-          </text>
-        </svg>
+        <img src="/assets/images/gatilab-logo.svg" alt="Gatilab" class="logo-dark" width="140" height="40" />
+        <img src="/assets/images/gatilab-logo-light.svg" alt="Gatilab" class="logo-light" width="140" height="40" />
       </a>
 
       <ul class="nav-links" id="nav-links">
@@ -74,14 +71,37 @@ const navLinks = [
     box-shadow: var(--shadow-sm);
   }
 
-  .header-transparent .logo,
   .header-transparent .nav-link {
     color: var(--color-white);
   }
 
-  .header-scrolled .logo,
   .header-scrolled .nav-link {
     color: var(--color-gray-800);
+  }
+
+  /* Logo switching for transparent/scrolled states */
+  .logo-dark {
+    display: block;
+  }
+
+  .logo-light {
+    display: none;
+  }
+
+  .header-transparent .logo-dark {
+    display: none;
+  }
+
+  .header-transparent .logo-light {
+    display: block;
+  }
+
+  .header-scrolled .logo-dark {
+    display: block;
+  }
+
+  .header-scrolled .logo-light {
+    display: none;
   }
 
   .nav {
