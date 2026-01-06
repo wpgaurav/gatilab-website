@@ -1,0 +1,138 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  transparentHeader?: boolean;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = 'Gatilab is a conversion-focused digital marketing agency with 700+ clients including IBM, Adobe, and Government of India. We build brands that convert.',
+  transparentHeader = false,
+  ogImage = '/images/og-default.jpg'
+} = Astro.props;
+
+const siteTitle = title === 'Home' ? 'Gatilab - Perfection Obsessed Marketing & Design Agency' : `${title} | Gatilab`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gatilab" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+    <title>{siteTitle}</title>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <Header transparent={transparentHeader} />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      // Register GSAP ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Global GSAP animations
+      document.addEventListener('DOMContentLoaded', () => {
+        // Fade up animations
+        gsap.utils.toArray('.gsap-fade-up').forEach((element) => {
+          gsap.to(element, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+
+        // Fade in animations
+        gsap.utils.toArray('.gsap-fade-in').forEach((element) => {
+          gsap.to(element, {
+            opacity: 1,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+
+        // Scale in animations
+        gsap.utils.toArray('.gsap-scale-in').forEach((element) => {
+          gsap.to(element, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+
+        // Stagger animations for groups
+        gsap.utils.toArray('.stagger-container').forEach((container) => {
+          const items = container.querySelectorAll('.stagger-item');
+          gsap.to(items, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top 80%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

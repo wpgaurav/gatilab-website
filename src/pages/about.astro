@@ -1,0 +1,514 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const team = [
+  {
+    name: 'Gaurav Tiwari',
+    role: 'Founder & CEO',
+    bio: 'Content marketer, WordPress developer, and SEO architect with 16+ years of experience. WordPress core contributor with plugins serving 7,500+ users.',
+    linkedin: 'https://linkedin.com/in/wpgaurav'
+  },
+  {
+    name: 'Ravi Shahi',
+    role: 'Co-Founder & Advertising Partner',
+    bio: 'Oversees client partnerships and strategic growth initiatives. Expertise in advertising and business development.',
+    linkedin: '#'
+  },
+  {
+    name: 'Siddharth Sharma',
+    role: 'Managing Partner',
+    bio: 'Joined as managing partner to help scale operations while maintaining quality-first delivery.',
+    linkedin: '#'
+  }
+];
+
+const milestones = [
+  { year: '2008', event: 'Gaurav Tiwari begins blogging and web development' },
+  { year: '2014', event: 'Gatilab founded in Delhi' },
+  { year: '2018', event: '300+ clients milestone' },
+  { year: '2020', event: 'First Government of India project' },
+  { year: '2022', event: '500+ clients, enterprise partnerships with Adobe, IBM' },
+  { year: '2024', event: '700+ clients, 104% YoY growth' },
+  { year: '2025', event: 'Expanded service offerings, 14+ team members' }
+];
+
+const values = [
+  {
+    title: 'Conversion First',
+    description: 'Every pixel, every word, every strategy has one job: drive results. We don\'t do pretty for pretty\'s sake. Design without purpose is decoration. Marketing without measurement is guesswork.',
+    icon: 'target'
+  },
+  {
+    title: 'Perfection Obsessed',
+    description: 'Good enough isn\'t. We sweat the details others ignore—load times, mobile responsiveness, copy that actually persuades. Our clients notice the difference even when they can\'t articulate it.',
+    icon: 'star'
+  },
+  {
+    title: 'Quality Over Quantity',
+    description: 'We\'d rather do five projects exceptionally than fifty projects adequately. This isn\'t a limitation—it\'s a competitive advantage. Smaller client loads mean deeper attention.',
+    icon: 'award'
+  },
+  {
+    title: 'Client Partnership',
+    description: 'We\'re not vendors waiting for instructions. We\'re partners invested in outcomes. Your success metrics are our success metrics. Your growth is how we measure our work.',
+    icon: 'users'
+  },
+  {
+    title: 'Transparency',
+    description: 'No hidden fees. No vague deliverables. No promises we can\'t keep. We tell clients what\'s realistic, what\'s risky, and what\'s a waste of their money.',
+    icon: 'eye'
+  }
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about Gatilab, a conversion-focused digital marketing agency founded in 2014. 700+ clients including IBM, Adobe, and Government of India."
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-content gsap-fade-up">
+        <span class="section-tag">About Us</span>
+        <h1>Perfection Obsessed<br />Marketing & Design Agency</h1>
+        <p class="hero-description">
+          We don't chase pageviews or follower counts. We measure success by what matters:
+          leads generated, sales closed, and businesses grown.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Story -->
+  <section class="story-section section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content gsap-slide-left">
+          <span class="section-tag">Our Story</span>
+          <h2>Built on Results, Not Promises</h2>
+          <p class="lead">
+            The name "Gatilab" combines "Gati" (momentum, progress in Hindi) with "Lab"
+            (a place of experimentation and creation). It captures who we are: an agency
+            that moves businesses forward through constant innovation.
+          </p>
+          <p>
+            Gatilab started in 2014 when Gaurav Tiwari, already a veteran WordPress developer
+            and blogger, saw something broken in the marketing industry. Agencies were obsessed
+            with awards and aesthetics but couldn't answer a simple question: "Did this actually
+            grow the business?"
+          </p>
+          <p>
+            The answer was usually "we don't track that."
+          </p>
+          <p>
+            <strong>That was unacceptable.</strong>
+          </p>
+          <p>
+            So we built an agency on a different premise: every decision—from font choice to
+            content strategy—should be traceable to business outcomes. Pretty websites that
+            don't convert are failures. Viral content that doesn't build pipeline is noise.
+          </p>
+          <p>
+            A decade later, that founding philosophy hasn't changed. We've worked with over
+            700 clients, from solopreneurs to global brands. We've grown 104% year-over-year
+            because our clients grow. Their success funds ours.
+          </p>
+        </div>
+        <div class="story-stats gsap-slide-right">
+          <div class="stat-card">
+            <span class="stat-number">700+</span>
+            <span class="stat-label">Clients Served</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">330%</span>
+            <span class="stat-label">Combined Revenue Growth</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Years in Business</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Countries Served</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="values-section section bg-light">
+    <div class="container">
+      <div class="section-header gsap-fade-up">
+        <span class="section-tag">Our Values</span>
+        <h2>What We Stand For</h2>
+        <p>These aren't wall decorations. They're how we make decisions every day.</p>
+      </div>
+      <div class="values-grid stagger-container">
+        {values.map(value => (
+          <div class="value-card stagger-item">
+            <div class="value-icon">
+              {value.icon === 'target' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              )}
+              {value.icon === 'star' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              )}
+              {value.icon === 'award' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="7"/>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                </svg>
+              )}
+              {value.icon === 'users' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              )}
+              {value.icon === 'eye' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              )}
+            </div>
+            <h3>{value.title}</h3>
+            <p>{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="team-section section">
+    <div class="container">
+      <div class="section-header gsap-fade-up">
+        <span class="section-tag">Leadership</span>
+        <h2>Meet the Team</h2>
+        <p>Senior people doing the actual work. Not junior staff learning on your budget.</p>
+      </div>
+      <div class="team-grid stagger-container">
+        {team.map(member => (
+          <div class="team-card stagger-item">
+            <div class="member-avatar">
+              {member.name.split(' ').map(n => n[0]).join('')}
+            </div>
+            <h3>{member.name}</h3>
+            <span class="member-role">{member.role}</span>
+            <p>{member.bio}</p>
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" class="member-linkedin">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-section section bg-dark">
+    <div class="container">
+      <div class="section-header gsap-fade-up">
+        <span class="section-tag-light">Our Journey</span>
+        <h2>Milestones</h2>
+        <p>A decade of building brands that convert.</p>
+      </div>
+      <div class="timeline gsap-fade-up">
+        {milestones.map((milestone, index) => (
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <span class="timeline-year">{milestone.year}</span>
+            </div>
+            <div class="timeline-content">
+              <p>{milestone.event}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content gsap-fade-up">
+        <h2>Ready to Work with Us?</h2>
+        <p>Let's discuss how we can help grow your business.</p>
+        <a href="/contact" class="btn btn-accent btn-lg">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    padding: var(--space-32) 0 var(--space-20);
+    color: var(--color-white);
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    color: var(--color-white);
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-description {
+    font-size: var(--text-xl);
+    color: rgba(255,255,255,0.85);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-tag-light {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .story-content .lead {
+    font-size: var(--text-xl);
+    color: var(--color-gray-700);
+    margin-bottom: var(--space-6);
+  }
+
+  .story-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .stat-card {
+    background: var(--color-gray-50);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+  }
+
+  .stat-card .stat-number {
+    display: block;
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .stat-card .stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-gray-600);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .value-card {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+  }
+
+  .value-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-6);
+  }
+
+  .value-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .value-card p {
+    color: var(--color-gray-600);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .team-card {
+    background: var(--color-gray-50);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+  }
+
+  .member-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin: 0 auto var(--space-6);
+  }
+
+  .team-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-1);
+  }
+
+  .member-role {
+    display: block;
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+  }
+
+  .team-card p {
+    color: var(--color-gray-600);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .member-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-primary);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .member-linkedin:hover {
+    color: var(--color-accent);
+  }
+
+  .timeline {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: var(--space-8);
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .timeline-item:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-marker {
+    flex-shrink: 0;
+    width: 80px;
+  }
+
+  .timeline-year {
+    display: inline-block;
+    background: var(--color-accent);
+    color: var(--color-white);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: var(--text-sm);
+  }
+
+  .timeline-content p {
+    color: var(--color-gray-300);
+    margin: 0;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-content p {
+    color: rgba(255,255,255,0.8);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-8);
+  }
+
+  @media (max-width: 1024px) {
+    .story-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page-hero h1 {
+      font-size: var(--text-4xl);
+    }
+
+    .values-grid,
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .story-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

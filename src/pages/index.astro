@@ -1,0 +1,1071 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const clients = [
+  'IBM', 'Adobe', 'HubSpot', 'Canva', 'Acer', 'Airtel', 'Government of India'
+];
+
+const services = [
+  {
+    title: 'WordPress Development',
+    description: 'High-performance websites that load fast, convert visitors, and don\'t break when you update plugins.',
+    icon: 'code',
+    stats: '200+ sites delivered'
+  },
+  {
+    title: 'SEO Services',
+    description: 'Rankings that bring customers, not just traffic. Revenue-focused keyword strategy and technical optimization.',
+    icon: 'search',
+    stats: '47% avg traffic increase'
+  },
+  {
+    title: 'Content Marketing',
+    description: 'Content that ranks, converts, and doesn\'t read like it was written by a committee of robots.',
+    icon: 'edit',
+    stats: '1,750+ articles published'
+  },
+  {
+    title: 'Web Design',
+    description: 'Design that looks good AND converts. Strategic visual communication, not just pretty pixels.',
+    icon: 'palette',
+    stats: '700+ clients served'
+  },
+  {
+    title: 'Branding & Identity',
+    description: 'Visual identity that makes people remember you and trust you before you\'ve said a word.',
+    icon: 'star',
+    stats: 'Full brand packages'
+  },
+  {
+    title: 'White-Label Services',
+    description: 'We do the work. Your agency gets the credit. Your clients never know we exist.',
+    icon: 'users',
+    stats: '15-20% below retail'
+  }
+];
+
+const testimonials = [
+  {
+    quote: 'Gaurav Tiwari is possibly the finest talent I have seen. He deserves a great future.',
+    author: 'Sushil Modi',
+    role: 'Hon\'ble MP, Former Deputy CM & Finance Minister, Bihar'
+  },
+  {
+    quote: 'From planning to writing to designing to marketing, Gaurav is the best I\'ve seen in my entire career.',
+    author: 'Eugene M. Keen',
+    role: 'Former Product Marketing Manager, Konica Minolta'
+  },
+  {
+    quote: 'His work is so detailed and just what I need. The way he works is very professional. He has a great eye for design.',
+    author: 'Client',
+    role: 'Web Development Project'
+  }
+];
+
+const stats = [
+  { number: '700+', label: 'Clients Served' },
+  { number: '330%', label: 'Combined Revenue Growth' },
+  { number: '104%', label: 'YoY Agency Growth' },
+  { number: '10+', label: 'Years in Business' }
+];
+---
+
+<BaseLayout title="Home" transparentHeader={true}>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-pattern"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge gsap-fade-up">
+          <span class="badge-dot"></span>
+          <span>Trusted by 700+ businesses globally</span>
+        </div>
+        <h1 class="hero-title gsap-fade-up">
+          We Build Brands<br />
+          <span class="text-gradient">That Convert</span>
+        </h1>
+        <p class="hero-description gsap-fade-up">
+          Conversion-focused digital strategies, high-performance websites, and custom solutions
+          that turn visitors into customers and customers into advocates.
+        </p>
+        <div class="hero-actions gsap-fade-up">
+          <a href="/contact" class="btn btn-accent btn-lg">Start Your Project</a>
+          <a href="/services" class="btn btn-outline-light btn-lg">Explore Services</a>
+        </div>
+        <div class="hero-clients gsap-fade-up">
+          <span class="clients-label">Trusted by:</span>
+          <div class="clients-list">
+            {clients.slice(0, 5).map(client => (
+              <span class="client-name">{client}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual gsap-scale-in">
+        <div class="hero-card">
+          <div class="card-metric">
+            <span class="metric-number" id="counter-clients">0</span>
+            <span class="metric-label">Happy Clients</span>
+          </div>
+          <div class="card-divider"></div>
+          <div class="card-metric">
+            <span class="metric-number" id="counter-growth">0%</span>
+            <span class="metric-label">Revenue Growth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll to explore</span>
+      <div class="scroll-indicator"></div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid stagger-container">
+        {stats.map(stat => (
+          <div class="stat-item stagger-item">
+            <span class="stat-number">{stat.number}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="about-preview section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content gsap-slide-left">
+          <span class="section-tag">About Gatilab</span>
+          <h2>Perfection Obsessed Marketing & Design Agency</h2>
+          <p class="lead">
+            We don't chase pageviews or follower counts. We measure success by what matters:
+            leads generated, sales closed, and businesses grown.
+          </p>
+          <p>
+            Founded in 2014 by Gaurav Tiwari and Ravi Shahi, Gatilab has grown from a small
+            Delhi-based agency to a trusted partner for 700+ clients globally—from startups
+            to enterprises like IBM, Adobe, HubSpot, and the Government of India.
+          </p>
+          <div class="about-features">
+            <div class="feature">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Conversion First</strong>
+                <p>Every pixel, every word has one job: drive results.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Quality Over Quantity</strong>
+                <p>Smaller client loads mean deeper attention.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Client Partnership</strong>
+                <p>Your success metrics are our success metrics.</p>
+              </div>
+            </div>
+          </div>
+          <a href="/about" class="btn btn-primary">Learn More About Us</a>
+        </div>
+        <div class="about-visual gsap-slide-right">
+          <div class="visual-card">
+            <div class="visual-stats">
+              <div class="visual-stat">
+                <span class="visual-number">16+</span>
+                <span class="visual-label">Years Experience</span>
+              </div>
+              <div class="visual-stat">
+                <span class="visual-number">14+</span>
+                <span class="visual-label">Team Members</span>
+              </div>
+              <div class="visual-stat">
+                <span class="visual-number">20+</span>
+                <span class="visual-label">Countries Served</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section section bg-light">
+    <div class="container">
+      <div class="section-header gsap-fade-up">
+        <span class="section-tag">What We Do</span>
+        <h2>Services Built for Results</h2>
+        <p>Full-stack capability: Strategy, design, development, content, SEO—all under one roof.
+           No handoffs between agencies. One team owning the entire outcome.</p>
+      </div>
+      <div class="services-grid stagger-container">
+        {services.map(service => (
+          <div class="service-card stagger-item">
+            <div class="service-icon">
+              {service.icon === 'code' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              )}
+              {service.icon === 'search' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              )}
+              {service.icon === 'edit' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              )}
+              {service.icon === 'palette' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="13.5" cy="6.5" r="0.5" fill="currentColor"/>
+                  <circle cx="17.5" cy="10.5" r="0.5" fill="currentColor"/>
+                  <circle cx="8.5" cy="7.5" r="0.5" fill="currentColor"/>
+                  <circle cx="6.5" cy="12.5" r="0.5" fill="currentColor"/>
+                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/>
+                </svg>
+              )}
+              {service.icon === 'star' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              )}
+              {service.icon === 'users' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              )}
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <span class="service-stat">{service.stats}</span>
+          </div>
+        ))}
+      </div>
+      <div class="services-cta gsap-fade-up">
+        <a href="/services" class="btn btn-primary btn-lg">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section section">
+    <div class="container">
+      <div class="section-header gsap-fade-up">
+        <span class="section-tag">Client Stories</span>
+        <h2>What Our Clients Say</h2>
+        <p>Real feedback from real clients. No fluff, just results.</p>
+      </div>
+      <div class="testimonials-grid stagger-container">
+        {testimonials.map(testimonial => (
+          <div class="testimonial-card stagger-item">
+            <div class="quote-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" opacity="0.1">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+            <blockquote>{testimonial.quote}</blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                {testimonial.author.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div class="author-info">
+                <strong>{testimonial.author}</strong>
+                <span>{testimonial.role}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Differentiators Section -->
+  <section class="differentiators-section section bg-dark">
+    <div class="container">
+      <div class="diff-grid">
+        <div class="diff-content gsap-fade-up">
+          <span class="section-tag-light">Why Gatilab</span>
+          <h2>What Makes Us Different</h2>
+          <p>We're not like other agencies. Here's how we compare:</p>
+        </div>
+        <div class="diff-table gsap-fade-up">
+          <div class="diff-row diff-header">
+            <span>Factor</span>
+            <span>Typical Agency</span>
+            <span>Gatilab</span>
+          </div>
+          <div class="diff-row">
+            <span>Success Metric</span>
+            <span class="diff-typical">Deliverables completed</span>
+            <span class="diff-gatilab">Business results achieved</span>
+          </div>
+          <div class="diff-row">
+            <span>Who Does Work</span>
+            <span class="diff-typical">Junior staff</span>
+            <span class="diff-gatilab">Senior specialists</span>
+          </div>
+          <div class="diff-row">
+            <span>Tech Capability</span>
+            <span class="diff-typical">Outsourced</span>
+            <span class="diff-gatilab">In-house development</span>
+          </div>
+          <div class="diff-row">
+            <span>Reporting</span>
+            <span class="diff-typical">Vanity metrics</span>
+            <span class="diff-gatilab">Business KPIs</span>
+          </div>
+          <div class="diff-row">
+            <span>Relationship</span>
+            <span class="diff-typical">Vendor</span>
+            <span class="diff-gatilab">Partner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content gsap-fade-up">
+        <h2>Ready to Build a Brand That Converts?</h2>
+        <p>Let's talk about your project. No pressure, no obligation—just an honest conversation about what's possible.</p>
+        <div class="cta-actions">
+          <a href="/contact" class="btn btn-accent btn-lg">Start Your Project</a>
+          <a href="mailto:contact@gatilab.com" class="btn btn-outline-light btn-lg">contact@gatilab.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-32) 0 var(--space-20);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, #2d4a7c 100%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  .hero .container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .hero-content {
+    color: var(--color-white);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .hero-title {
+    font-size: var(--text-6xl);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-6);
+    color: var(--color-white);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-description {
+    font-size: var(--text-xl);
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: var(--space-8);
+    max-width: 540px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+  }
+
+  .btn-outline-light {
+    border: 2px solid rgba(255,255,255,0.3);
+    color: var(--color-white);
+    background: transparent;
+  }
+
+  .btn-outline-light:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.5);
+    color: var(--color-white);
+  }
+
+  .hero-clients {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .clients-label {
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.6);
+  }
+
+  .clients-list {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .client-name {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    padding: var(--space-1) var(--space-3);
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius-md);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-10);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    min-width: 280px;
+  }
+
+  .card-metric {
+    text-align: center;
+  }
+
+  .metric-number {
+    display: block;
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    color: var(--color-white);
+    line-height: 1;
+  }
+
+  .metric-label {
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .card-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    color: rgba(255,255,255,0.6);
+    font-size: var(--text-sm);
+  }
+
+  .scroll-indicator {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: var(--radius-full);
+    position: relative;
+  }
+
+  .scroll-indicator::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: var(--radius-full);
+    animation: scroll 2s infinite;
+  }
+
+  @keyframes scroll {
+    0% { top: 8px; opacity: 1; }
+    100% { top: 24px; opacity: 0; }
+  }
+
+  /* Stats Section */
+  .stats-section {
+    background: var(--color-white);
+    padding: var(--space-16) 0;
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: var(--space-6);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* About Preview */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-tag-light {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+  }
+
+  .about-content h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .about-content .lead {
+    font-size: var(--text-xl);
+    color: var(--color-gray-700);
+    margin-bottom: var(--space-4);
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin: var(--space-8) 0;
+  }
+
+  .feature {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature strong {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--color-gray-900);
+  }
+
+  .feature p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-gray-600);
+  }
+
+  .visual-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-10);
+    color: var(--color-white);
+  }
+
+  .visual-stats {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .visual-stat {
+    text-align: center;
+    padding: var(--space-4);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .visual-stat:last-child {
+    border-bottom: none;
+  }
+
+  .visual-number {
+    display: block;
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-1);
+  }
+
+  .visual-label {
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* Services Section */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .service-card {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    border: 1px solid var(--color-gray-200);
+    transition: all var(--transition-base);
+  }
+
+  .service-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--color-gray-100);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    margin-bottom: var(--space-6);
+    transition: all var(--transition-base);
+  }
+
+  .service-card:hover .service-icon {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .service-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .service-card p {
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .service-stat {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .services-cta {
+    text-align: center;
+    margin-top: var(--space-12);
+  }
+
+  /* Testimonials */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .testimonial-card {
+    background: var(--color-gray-50);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    position: relative;
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: var(--space-6);
+    right: var(--space-6);
+    color: var(--color-primary);
+  }
+
+  .testimonial-card blockquote {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    color: var(--color-gray-800);
+    margin-bottom: var(--space-6);
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--text-sm);
+  }
+
+  .author-info strong {
+    display: block;
+    color: var(--color-gray-900);
+  }
+
+  .author-info span {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+  }
+
+  /* Differentiators */
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .diff-content h2 {
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+  }
+
+  .diff-content p {
+    color: var(--color-gray-400);
+  }
+
+  .diff-table {
+    background: rgba(255,255,255,0.05);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+
+  .diff-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .diff-row:last-child {
+    border-bottom: none;
+  }
+
+  .diff-header {
+    background: rgba(255,255,255,0.05);
+    font-weight: 600;
+    color: var(--color-gray-400);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .diff-row span:first-child {
+    font-weight: 500;
+    color: var(--color-white);
+  }
+
+  .diff-typical {
+    color: var(--color-gray-500);
+  }
+
+  .diff-gatilab {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: var(--space-24) 0;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-4xl);
+  }
+
+  .cta-content p {
+    color: rgba(255,255,255,0.8);
+    font-size: var(--text-xl);
+    max-width: 600px;
+    margin: 0 auto var(--space-8);
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: var(--text-5xl);
+    }
+
+    .hero-description {
+      margin: 0 auto var(--space-8);
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-clients {
+      justify-content: center;
+    }
+
+    .hero-visual {
+      display: none;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .diff-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: var(--text-4xl);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .diff-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+    }
+
+    .diff-header {
+      display: none;
+    }
+
+    .diff-row span::before {
+      content: attr(data-label);
+      display: block;
+      font-size: var(--text-xs);
+      color: var(--color-gray-500);
+      margin-bottom: var(--space-1);
+    }
+
+    .cta-content h2 {
+      font-size: var(--text-3xl);
+    }
+
+    .cta-actions {
+      flex-direction: column;
+    }
+
+    .cta-actions .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Counter animation for hero
+  document.addEventListener('DOMContentLoaded', () => {
+    const animateCounter = (element, target, suffix = '') => {
+      const duration = 2000;
+      const start = 0;
+      const startTime = performance.now();
+
+      const update = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (target - start) * easeOut);
+
+        if (element) {
+          element.textContent = current + suffix;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      };
+
+      requestAnimationFrame(update);
+    };
+
+    // Animate counters when hero is visible
+    setTimeout(() => {
+      animateCounter(document.getElementById('counter-clients'), 700, '+');
+      animateCounter(document.getElementById('counter-growth'), 330, '%');
+    }, 500);
+  });
+</script>
